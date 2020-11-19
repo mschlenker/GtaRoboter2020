@@ -1,0 +1,185 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true
+    }
+\usepackage{graphicx}
+
+%Information to be included in the title page:
+\title{GTA Einführung Robotik mit LEGO Mindstorms}
+\author{Mattias Schlenker}
+\institute{Wilhelm-Ostwald-Gymnasium}
+\date{19. November 2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Welche Sensoren kennt Ihr?}
+\begin{itemize}
+\item Platzhalter für Eure Hausaufgabe!
+\item Herr Schlenker macht dann Copy and Paste aus dem Chat
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{LEGO-Sensoren}
+\begin{itemize}
+\item  Entfernungssensor
+\item  Farbsensor
+% \item   Schwarz-Weiss-Sensor $\Rightarrow$ Line-Follower
+% \item   Magnetometer
+\item  interne Sensoren (Drehwinkel der Räder oder Poti eines Servos)
+\item (Temperatur)
+% \item Gassensoren
+% \item Radar, LIDAR, Kameras
+\end{itemize}
+
+Damit müssen wir zunächst auskommen. Aber: Es gibt Tricks...
+
+\end{frame}
+ 
+ 
+\begin{frame}
+\frametitle{Wie funktionieren Sensoren?}
+\begin{itemize}
+\item Platzhalter für unsere Erörterungen!
+\item Herr Schlenker macht dann Copy and Paste aus dem Chat
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Wer misst, misst Mist!}
+Und welche Fails resultieren daraus?
+\begin{itemize}
+\item Flugzeug: Fahrwerk auf dem Boden eingezogen
+\item \href{https://twitter.com/nke_ise/status/897756900753891328}{Desinfektionsmittelspender erkennt nur helle Haut}
+\item Entfernungssensor erkennt keine Wollmäntel
+\item \href{https://youtu.be/jI-rC2FCKo4?t=94}{Prellende Schalter}
+\item Fallen Euch mehr Beispiele ein?
+\end{itemize}
+\end{frame}
+
+ 
+ \begin{frame}
+\frametitle{Was lernen wir daraus?}
+Wir müssen die Funktionsweise jedes Sensors genau kennen, um Problemen begegnen zu können. 
+
+Wir müssen für ,,Fallbacks'' sorgen!
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Loslegen mit Makecode}
+\begin{itemize}
+\item 
+Die gesamte Programmierung findet im Browser statt 
+\href{https://makecode.mindstorms.com/}{https://makecode.mindstorms.com/}
+\item Fertige Programme werden als UF2-Datei heruntergeladen - sichert sie gut weg!
+\item Makecode gibt es auch für \href{https://makecode.minecraft.com/}{Minecraft}!
+\item ...und für die \href{https://arcade.makecode.com/}{Spieleprogrammierung}
+\item ...und viele \href{https://makecode.adafruit.com/}{starke Microcontroller}
+\end{itemize}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Erstes Codebeispiel}
+\begin{itemize}
+\item Beim Start für 5 Sekunden ein schlafendes Gesicht anzeigen
+\item Dann dauerhaft:
+\item Erst zwei Sekunden nach rechts schauen
+\item Dann zwei Sekunden nach links schauen
+\end{itemize}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Erweiterung um Events}
+Wenn der Mittelknopf gedrückt wird, drei Sekunden ,,Dizzy'' anzeigen.
+
+Seht Ihr das Problem? Könnt Ihr Euch weitere Probleme vorstellen?
+
+\begin{figure}
+  \includegraphics[width=8cm]{hic.jpg}
+  \caption{HIC SVNT DRACONES}
+  \label{fig:hic1}
+\end{figure}
+
+
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Eine Variable hilft}
+Das Problem: Events in separaten eckigen Blöcken \textbf{unterbrechen} entweder den Ablauf des forever()-Loops oder \textbf{laufen} parallel. Beides ist meist nicht erwünscht – \textbf{also vermeiden}! 
+
+Emil zeigt in Minecraft, wie es besser geht: Event \textbf{setzt nur eine Variable}.
+
+(hier kommt dann der Screenshot des Codes)
+
+\end{frame}
+ 
+
+\begin{frame}
+\frametitle{Eine Variable für Notaus}
+(hier kommt dann der Screenshot des Codes)
+\end{frame}
+
+\begin{frame}
+\frametitle{Und eine Variable, um Code abzukürzen}
+(hier kommt dann der Screenshot des Codes)
+\end{frame}
+
+\begin{frame}
+\frametitle{Noch Zeit? Debugging-Ausgaben}
+(hier kommt dann der Screenshot des Codes)
+\end{frame}
+
+\begin{frame}
+\frametitle{Dumm, dass Corona Distanz erzwingt}
+\begin{itemize}
+\item Als Fernsessions wird Theorie einfacher als Praxis
+\item Immerhin: Programmierumgebung hilft bei der Simulation
+\item 3. Dezember 14:00 Roboterausgabe in Raum 2.108
+\item 17. Dezember 15:30 Fernsession, evtl. 2er-Teams aus einer Klasse, wir programmieren einen Roboter, der Hindernissen ausweicht
+\item Über die Weihnachtsferien: YouTube-Videos (auch von mir!) und eine kleine Programmieraufgabe, die keine Hardware erfordert
+\end{itemize}
+
+
+
+\end{frame}
+
+% \begin{frame}
+% \frametitle{Der Anspruch – der Schule und von uns selbst}
+% \begin{itemize}
+% \item  Wir lernen die Interaktion von Elektronik und physischer Welt
+% \item  Unsere Arbeit ist eher ingenieurstechnisch als wissenschaftlich
+% \item Physik und Technik: hier eher qualitativ als quantitativ
+% \item  Wir machen Fehler und lernen daraus!
+% \item Wir lernen auch aus Fehlern anderer – hilft schneller zu sein
+% \item  Wir arbeiten gemeinsam auf Wettbewerbe hin
+% \item  Jeder lernt alles: Programmieren und Konstruktion 
+% \item  Bei Ad-Hoc-Wettbewerben dennoch Rollen im Team – Konstrukteur:innen, Programmierer:innen und Integrator:innen 
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Die Werkzeuge – und Umgang damit}
+% \begin{itemize}
+% \item  LEGO Technik zur Konstruktion
+% \item  Mindstorm liefern autonome Steuereinheit, Sensoren, Aktoren
+% \item Programmierung in \href{https://makecode.mindstorms.com/}{Makecode} (,,Klötzchen''), Python (Fortgeschrittene)
+% \item  Wir lernen Dokumentation von Soft- und Hardware
+% \item  Wir arbeiten strukturiert mit Versionierung \& Kommentierung!
+% \item Wir benutzen ,,Rubber-Ducking'' zur Fehlersuche
+% \item  Am Ende: Stand festhalten, Code sichern, Arbeitsplatz aufräumen!
+% \item Materialien: Austausch LernSax, Folien und Beispielcode auf \href{https://github.com/mschlenker/GtaRoboter2020}{GitHub}
+% \end{itemize}
+% \end{frame}
+
+
+
+
+\end{document}
