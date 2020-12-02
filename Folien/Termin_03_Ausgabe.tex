@@ -1,6 +1,7 @@
 \documentclass{beamer}
 
 \usepackage[utf8]{inputenc}
+\usepackage{eurosym}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks = true
@@ -18,6 +19,18 @@
 \frame{\titlepage}
 
 \begin{frame}
+\frametitle{Achtung, teuer!}
+Bitte gebt auf die Roboter acht und widersteht dem Drang, sie umzubauen! Haltet sie von Haustieren und Geschwistern fern!
+
+\begin{itemize}
+\item Verlorener EV-Brick? Totalschaden, 400 \EUR 
+\item Sensor/Motor verloren/kaputt? 50 \EUR
+\item Kleinteile verloren? 1 Stunde LEGO sortieren im Keller!
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Loslegen mit Makecode}
 Ruft die Seite \href{https://makecode.mindstorms.com/}{makecode.mindstorms.com} auf und klickt Euer erstes Programm zusammen: Abwechselnde Gesichtsausdrücke in der Dauerschleife.
 
@@ -31,7 +44,7 @@ Ruft die Seite \href{https://makecode.mindstorms.com/}{makecode.mindstorms.com} 
 
 \begin{frame}
 \frametitle{Herunterladen des Programms}
-Gebt dem Programm einen passenden Namen und klickt dann auf ,,Herunterladen'' und schließlich auf ,,Ich habe verstanden''
+Gebt dem Programm einen passenden Namen und klickt dann auf ,,Herunterladen'' und schließlich auf ,,Ich habe es  verstanden''
 
 \begin{figure}
   \includegraphics[width=8cm]{mkcd01.png}
@@ -97,9 +110,12 @@ Klickt auf ,,Datei auswählen'' und sucht mit dem Dateimanager die zu bearbeiten
 
 \begin{frame}
 \frametitle{Hinweise zum Schluss}
-
-\textbf{Bitte steuert noch nicht die Motoren an!} Zuvor gibt es im nächsten Block einige \textbf{Sicherheitshinweise}. Ihr dürft gerne \textbf{Sensoren oder Knopfdrücke auslesen} und mit \textbf{Tönen oder Anzeigen auf dem Display}  quittieren.
-
+\begin{itemize}
+\item
+\textbf{Bitte steuert zunächst die Motoren nicht an!} Ihr dürft gerne \textbf{Sensoren oder Knopfdrücke auslesen} und mit \textbf{Tönen oder Anzeigen auf dem Display}  quittieren.
+\item Wenn Ihr sicherer seid, fangt mit \textbf{einfachen Programmen} an: Mit \textbf{50\% Motordrehzahl} anfahren und sofort stoppen, wenn ein Hindernis erkannt wird...
+\item \textbf{Hausaufgabe: Wieviele Grad muss jedes Rad} (jeweils in Gegenrichtung) \textbf{drehen}, damit der Roboter genau gegen Fahrtrichtung steht? Tipp: Rechnet in der Einheit ,,LEGO-Noppen\footnote{Zur Kontrolle: Das Rastermaß von Lego sind ca. 7,9mm. Ein Lego-Baustein mit 4 × 2 Noppen entspricht im Maßstab 1:7 einem normalen Backstein mit 9 × 4½ × 3 Zoll.}'': Die Kreiszahl Pi und die Maßeinheit kürzt sich heraus und am Ende steht ein schöner Bruch. Die beste Lösung bekommt einen Schoko- oder Limopreis!
+\end{itemize}
 \end{frame}
 
 % \begin{frame}
