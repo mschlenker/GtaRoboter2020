@@ -1,0 +1,4 @@
+[autorun]
+label = GTA Roboter am WOG
+icon = roboter.ico
+shellexecute = LIESMICH.html
