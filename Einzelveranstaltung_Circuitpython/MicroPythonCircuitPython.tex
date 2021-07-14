@@ -1,0 +1,161 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true
+    }
+\usepackage{graphicx}
+\usepackage{listings}
+
+%Information to be included in the title page:
+\title{Einführung in MicroPython und CircuitPython}
+\author{Mattias Schlenker}
+\institute{Wilhelm-Ostwald-Gymnasium}
+\date{14. Juli 2021}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Herausforderung Hardware}
+\begin{itemize}
+\item Ziel war es, einen Python-Interpreter auf 32 Bit Microcontroller zu bringen
+\item Microcontroller sind oft Fingernagel kleine Computer mit geringstem Energiebedarf
+\item Einsatzgebiete: Steuerungs- und Regelungs-Aufgaben, Messwerte erfassen
+\item Kosten: von unter 1 Euro bis ca. 15 Euro
+\item Problem: Wenig Festspeicher (oft unter 1MB) und wenig Arbeitsspeicher 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Die Lösung}
+
+\begin{itemize}
+\item ,,Baremetal Python'' – der Python-Interpreter läuft ohne Betriebssystem direkt auf dem Microcontroller
+\item Abgespeckte Standardbibliothek
+\end{itemize}
+
+Ergebnis: Micropython läuft bereits auf 32 Bit Microcontrollern mit 32kB RAM und 256kB Festspeicher. Mehr ist natürlich immer besser…
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{MicroPython oder CircuitPython?}
+
+\begin{itemize}
+\item MicroPython ist das ältere Projekt mit der breiteren Hardwareunterstützung
+\item CircuitPython basiert auf Micropython, hat aber eine leichter verständliche Klassenbibliothek für Interaktion mit dem Microcontroller und ist intuitiver nutzbar
+\end{itemize}
+
+Empfehlung: Steht der Neukauf eines Microcontroller-Boards an, ein paar Euro mehr investieren und ein von CircuitPython unterstütztes Board kaufen, ist ein Board vorhanden, das nur MicroPython unterstützt, dann halt MicroPython.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Installation am Beispiel Xiao (CircuitPython auf SAMD21)}
+
+\begin{itemize}
+\item Download der UF2-Datei von \href{https://circuitpython.org/}{circuitpython.org}
+\item Reset-Pins zweimal hintereinander kurzschließen 
+\item USB-Massenspeicher-Laufwerk wird angezeigt
+\item UF2-Datei dorthin verschieben 
+\item Microcontroller rebootet
+\end{itemize}
+
+Installation ist ohne zusätzliche Tools möglich. Programmierung auch. Dazu gleich…
+\end{frame}
+
+\begin{frame}
+\frametitle{Installation am Beispiel ESP32 Devkit (MicroPython)}
+
+\begin{itemize}
+\item Download der BIN-Datei von \href{https://micropython.org/}{micropython.org}
+\item Installation der Python-Programme esptool und ampy
+\item esptool --chip esp32 --port COM4 write\_flash -z 0x1000 esp32….bin
+\item Auf serieller Konsole zugreifen und mit ,,import webrepl\_setup'' die Webkonsole aktivieren
+\item Microcontroller rebooten
+\end{itemize}
+
+Bei aktiviertem WebREPL sind keine zusätzlichen Tools nötig. Die Programmierung kann an jedem PC stattfinden. Dazu gleich...
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Programmierung am Beispiel Xiao (CircuitPython)}
+
+\begin{itemize}
+\item Beim Anschließen an den PC öffnet sich ein USB-Laufwerk
+\item Hier kann mit jedem guten Editor die ,,main.py'' verändert werden
+\item Speichert man die Datei, startet der Interpreter neu
+\item Serielle Konsole kann bspw. mit PuTTY zugegriffen werden
+\item Adafruit empfiehlt den Editor ,,\href{Mu}{https://codewith.mu/}''
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\frametitle{Blink-Beispiel CircuitPython}
+
+\begin{lstlisting}[language=Python] 
+import board
+import digitalio
+import time
+
+led = digitalio.DigitalInOut(board.LED)
+led.direction = digitalio.Direction.OUTPUT
+
+while True:
+    led.value = True
+    time.sleep(0.5)
+    led.value = False
+    time.sleep(0.5)
+
+\end{lstlisting} 
+
+(Beispiel mit Auslesen eines Pins wird vorgeführt)
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\frametitle{Blink-Beispiel MicroPython}
+
+In Mu speichern und per WebREPL hochladen...
+
+\begin{lstlisting}[language=Python] 
+import machine
+import time
+
+led = machine.Pin(5, machine.Pin.OUT)
+
+while True:
+    led.on()
+    time.sleep(0.5)
+    led.off()
+    time.sleep(0.5)
+
+\end{lstlisting} 
+
+Achtung: Pin-Mapping entspricht oft nicht den Aufdrucken am Board. Pinout-Diagramme heranziehen!
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Links und Fazit}
+
+\begin{itemize}
+\item Ich habe 3 ESP ausprobiert, bis ich einen gefunden habe, bei dem serielle Konsole und WIFI zuverlässig funktionierten
+\item CircuitPython ist von Handhabung und Stabilitär zu bevorzugen
+\item \href{CircuitPython}{https://circuitpython.org}
+\item \href{MicroPython}{https://microypython.org}
+\item \href{WebREPL}{http://micropython.org/webrepl/}
+\item \href{EditorMu}{https://codewith.mu/}
+\end{itemize}
+
+\end{frame}
+
+\end{document}

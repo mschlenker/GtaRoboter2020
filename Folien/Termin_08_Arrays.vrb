@@ -1,0 +1,6 @@
+\frametitle{Listen in der Informatik}
+
+In Pseudocode schreibt Ihr Listen Komma getrennt in eckigen Klammern. Unsere Liste für die x-Koordinaten der Essensrationen könnte also so aussehen:
+
+\begin{verbatim}xPositionenKuchen = [ 30, 50, 70, 110, 130, 150 ] \end{verbatim}
+
